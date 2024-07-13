@@ -78,42 +78,45 @@ class _LoginPageState extends State<LoginPage> {
                 child: SizedBox(
                   width: double.infinity,
                   height: double.infinity,
-                  child:Column(
-
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text('"Login to manage repair records and shop data."',style: Theme.of(context).textTheme.bodyLarge),
-
-                          SizedBox(height: 30,),
-                         Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: login_email,),
-                          SizedBox(height: 20,),
-                        Custom_field(label: 'Password',Icon1: Icon(Icons.password), isVisible: true, controller: login_password,),
-                          SizedBox(height: 30,),
-                          InkWell(
-                              onTap: (){
-                                Login();
-                              },
-                              child: Custom_btn(title: 'LOGIN',))
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Create a new account ',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black54)),
-
-
-                          InkWell(
-                              onTap: (){
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignIN()));
-                              },
-                              child: Text('Sign In',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.blue.shade900,fontWeight: FontWeight.bold))),
-                        ],
-                      ),
-
-                    ],
+                  child:SingleChildScrollView(
+                    child: Column(
+                    
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                   //         Text('Login to manage repair records and shop data.',style: Theme.of(context).textTheme.bodyLarge),
+                    
+                            SizedBox(height: 30,),
+                           Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: login_email,),
+                            SizedBox(height: 20,),
+                          Custom_field(label: 'Password',Icon1: Icon(Icons.password), isVisible: true, controller: login_password,),
+                            SizedBox(height: 30,),
+                            InkWell(
+                                onTap: (){
+                                  Login();
+                                },
+                                child: Custom_btn(title: 'LOGIN',))
+                          ],
+                        ),
+                        SizedBox(height: 50,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Create a new account ',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black54)),
+                    
+                    
+                            InkWell(
+                                onTap: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SignIN()));
+                                },
+                                child: Text('Sign In',style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.blue.shade900,fontWeight: FontWeight.bold))),
+                          ],
+                        ),
+                    
+                      ],
+                    ),
                   ) ,
                 ),
               ),
