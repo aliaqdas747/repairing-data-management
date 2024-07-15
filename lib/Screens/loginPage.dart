@@ -29,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
      );
    }else{
      try{
+       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Loading...")));
        UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
        if(userCredential.user!= null){
          Navigator.popUntil(context, (route) => route.isFirst);
@@ -89,9 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                    //         Text('Login to manage repair records and shop data.',style: Theme.of(context).textTheme.bodyLarge),
                     
                             SizedBox(height: 30,),
-                           Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: login_email,),
+                           Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: login_email, keyboardType: TextInputType.emailAddress,),
                             SizedBox(height: 20,),
-                          Custom_field(label: 'Password',Icon1: Icon(Icons.password), isVisible: true, controller: login_password,),
+                          Custom_field(label: 'Password',Icon1: Icon(Icons.password), isVisible: true, controller: login_password,keyboardType: TextInputType.text,),
                             SizedBox(height: 30,),
                             InkWell(
                                 onTap: (){

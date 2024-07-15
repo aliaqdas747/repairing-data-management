@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class CustomCard extends StatelessWidget {
+
   final String phoneModel;
   final String customerName;
   final String customerPhone;
   final String issueType;
+  final String amount;
+  final String index;
+  final ImageProvider img;
   final VoidCallback onDelete;
   final bool isRepaired;
   final bool isInProcess;
@@ -18,15 +22,20 @@ class CustomCard extends StatelessWidget {
     required this.customerPhone,
     required this.issueType,
     required this.onDelete,
+    required this.amount,
+    required this.index,
+    required this.img,
+
     this.isRepaired = true,
     this.isInProcess = false,
     this.isPending = false,
+
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(20),
       color: Colors.blue.shade700,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -41,7 +50,7 @@ class CustomCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/gg.png'),
+                 image: img,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -52,13 +61,33 @@ class CustomCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '01. $phoneModel',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '$phoneModel',
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+
+
+
+                  ],
                 ),
-                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      '$index',
+                      style: TextStyle(fontSize: 20,  color: Colors.indigoAccent),
+                    ),
+                  ),
+                ),
                 Text(
-                  'Customer Name: $customerName\nPhone No: $customerPhone\nIssue Type: $issueType',
+                  'Customer Name: $customerName\nPhone No: $customerPhone\nIssue Type: $issueType \nAmount:$amount',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ],

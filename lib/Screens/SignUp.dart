@@ -112,13 +112,13 @@ class _SignINState extends State<SignIN> {
                           children: [
                             SizedBox(height: 30),
                             //  TextField(controller: emailController,),
-                            Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: emailController),
+                            Custom_field(label: 'Email', Icon1: Icon(Icons.email), isVisible: false, controller: emailController, keyboardType: TextInputType.emailAddress,),
                             SizedBox(height: 15),
                             //  TextField(controller: passController,),
-                             Custom_field(label: 'Password', Icon1: Icon(Icons.password), isVisible: true, controller: passController),
+                             Custom_field(label: 'Password', Icon1: Icon(Icons.password), isVisible: true, controller: passController,keyboardType: TextInputType.visiblePassword,),
                             SizedBox(height: 15),
                             //  TextField(controller: cPasswordController,),
-                           Custom_field(label: 'Confirm Password', Icon1: Icon(Icons.password), isVisible: true, controller: cPasswordController),
+                           Custom_field(label: 'Confirm Password', Icon1: Icon(Icons.password), isVisible: true, controller: cPasswordController,keyboardType: TextInputType.visiblePassword,),
                             SizedBox(height: 30),
                             InkWell(
                               onTap: createUser,
